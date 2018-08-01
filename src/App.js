@@ -90,6 +90,13 @@ class App extends Component {
   }
 
   render() {
+    let {
+      deleteTodo,
+      handleEditSelect,
+      handleEditChange,
+      handleEditSubmit,
+      completeTodo
+    } = this;
     return (
       <div className="App">
         <header className="App-header" />
@@ -109,12 +116,14 @@ class App extends Component {
           </RaisedButton>
         </form>
         <List
-          deleteTodo={this.deleteTodo}
-          todos={this.state.todos}
-          handleEditSelect={this.handleEditSelect}
-          handleEditChange={this.handleEditChange}
-          handleEditSubmit={this.handleEditSubmit}
-          completeTodo={this.completeTodo}
+          {...{
+            deleteTodo,
+            handleEditSelect,
+            handleEditChange,
+            handleEditSubmit,
+            completeTodo,
+            todos: this.state.todos
+          }}
         />
       </div>
     );
